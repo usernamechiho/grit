@@ -29,8 +29,8 @@ export default function RootLayout() {
   return (
     <SafeAreaProvider>
       <SafeAreaView className="flex-1 bg-main">
-        <GestureHandlerRootView>
-          <View className="flex-1 px-4">
+        <GestureHandlerRootView className="flex-1">
+          <View className="flex-1">
             <Slot />
           </View>
         </GestureHandlerRootView>
