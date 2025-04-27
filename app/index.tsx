@@ -1,5 +1,5 @@
-import { View } from 'react-native';
+import { Redirect } from 'expo-router';
 
 export default function Index() {
-  return <View className="h-full"></View>;
+  return <Redirect href="/(content)" />;
 }

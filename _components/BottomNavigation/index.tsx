@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity } from 'react-native';
 import { useRouter, usePathname } from 'expo-router';
-import { Feather, AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
+import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { useState, useEffect } from 'react';
 
@@ -11,7 +11,11 @@ export default function BottomNavigation() {
 
   // 현재 경로에 따라 활성 탭 설정
   useEffect(() => {
-    setActiveTab(pathname);
+    if (pathname === '/') {
+      setActiveTab('/(content)');
+    } else {
+      setActiveTab(pathname);
+    }
   }, [pathname]);
 
   const handleNavigation = (path: string) => {
@@ -35,13 +39,13 @@ export default function BottomNavigation() {
   };
 
   return (
-    <View className="absolute border border-gray-300 bg-gray-50 rounded-3xl bottom-20 left-1/2 transform -translate-x-1/2 w-[200px] h-16 flex-row justify-evenly items-center">
+    <View className="absolute border border-gray-300 bg-gray-50 rounded-3xl bottom-20 left-1/2 transform -translate-x-1/2 w-[150px] h-16 flex-row justify-evenly items-center">
       <TouchableOpacity
         className="items-center justify-center"
         onPress={() => handleNavigation('/(content)')}
         activeOpacity={0.7}
       >
-        <MaterialCommunityIcons name="railroad-light" size={20} color={getIconColor('/(content)')} />
+        <MaterialCommunityIcons name="orbit" size={20} color={getIconColor('/(content)')} />
         <Text
           style={{
             fontSize: 12,
@@ -50,25 +54,7 @@ export default function BottomNavigation() {
             fontWeight: getTextWeight('/(content)') as '400' | '500',
           }}
         >
-          Day
-        </Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        className="items-center justify-center"
-        onPress={() => handleNavigation('/search')}
-        activeOpacity={0.7}
-      >
-        <AntDesign name="dotchart" size={20} color={getIconColor('/search')} />
-        <Text
-          style={{
-            fontSize: 12,
-            marginTop: 4,
-            color: getTextColor('/search'),
-            fontWeight: getTextWeight('/search') as '400' | '500',
-          }}
-        >
-          Grits
+          Days
         </Text>
       </TouchableOpacity>
 

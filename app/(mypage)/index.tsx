@@ -2,7 +2,7 @@ import { View, Text } from 'react-native';
 
 export default function MyPage() {
   return (
-    <View>
+    <View className="pt-4 pl-4">
       <Text className="text-main text-5xl font-semibold">Grit,</Text>
       <Text className="text-main text-5xl font-semibold">Pebble,</Text>
       <Text className="text-main text-5xl font-semibold">Rock</Text>
