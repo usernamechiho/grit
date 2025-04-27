@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "",
-    "scheme": "Grit",
+    "scheme": "grit",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
@@ -16,7 +16,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.usernamechiho.grit"
     },
     "web": {
       "bundler": "metro",
@@ -42,6 +43,8 @@
       "router": {
         "origin": false
       },
+      "supabaseUrl": "https://jtrgsgwjrxhkfuzvdiuq.supabase.co",
+      "supabaseAnonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp0cmdzZ3dqcnhoa2Z1enZkaXVxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU3NTEzODQsImV4cCI6MjA2MTMyNzM4NH0.FpBHjbVFt0sowXk9BBGIdHBcDeXoJ_kILogHCX-gam8",
       "eas": {
         "projectId": "294c9cc7-cc25-494c-acd2-ed900f2142dd"
       }
