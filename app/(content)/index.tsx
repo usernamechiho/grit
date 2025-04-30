@@ -2,8 +2,6 @@ import React, { useRef, useCallback, useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, Keyboard, ScrollView, Animated } from 'react-native';
 import BottomSheet, { BottomSheetTextInput, BottomSheetView } from '@gorhom/bottom-sheet';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import { useAtom } from 'jotai';
-import { sessionAtom } from '@/_atoms/auth';
 import { deleteDDay, loadDDays, saveDDay } from '@/_utils/d-day';
 import { AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
@@ -11,8 +9,6 @@ import DDayCard from './_components/Card';
 import { Swipeable } from 'react-native-gesture-handler';
 
 export default function Content() {
-  const [session] = useAtom(sessionAtom);
-
   const [date, setDate] = useState<Date>(new Date());
   const [description, setDescription] = useState('');
   const [dDayList, setDDayList] = useState<any[]>([]);
@@ -46,6 +42,9 @@ export default function Content() {
     await saveDDay(date.toISOString(), description);
     const list = await loadDDays();
     setDDayList(list);
+
+    setDate(new Date());
+    setDescription('');
     // 목록이 변경되면 ref 배열 크기 조정
     swipeableRefs.current = Array(list.length).fill(null);
     closeBottomSheet();
